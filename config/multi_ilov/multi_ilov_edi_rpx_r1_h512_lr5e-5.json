@@ -1,0 +1,77 @@
+{
+    "experiment_name": "tc_multi_ilov_edi_rpx_r1_h512_lr5e-5",
+    "run_description": "tacotron multi augmented with ilov edi rpx, without postnet without stopnet or prenet r=1 hidden=512 lr=5e-5",
+
+    "epochs": 300,         // total number of epochs to train.
+    "batch_size": 40,       // Batch size for training. Lower values than 32 might cause hard to learn attention.
+    "save_step": 10000,      // Number of training steps expected to save traning stats and checkpoints.
+    "batch_group_size": 100,  // Number of batches to shuffle after bucketing.
+    "max_seq_len": 600,
+    "learning_rate": 0.00005,  // Initial learning rate
+    "r": 1,
+    "has_postnet": false,
+    "has_stopnet": false,
+    "has_prenet": false,
+
+    "enc_embedding_dim": 256,
+    "dec_embedding_dim": 256,
+    "enc_hidden_dim": 512,
+    "dec_hidden_dim": 512,
+    "post_hidden_dim": 512,
+
+    "data": {
+        "edi": {
+            "corpus_1": {
+                "path_src" : "dataset/unilex_edi/charlex/libri960/data/src-train.txt",
+                "path_tgt" : "dataset/unilex_edi/charlex/libri960/data/tgt-train.txt"
+            },
+            "corpus_2": {
+                "path_src" : "dataset/unilex_edi/charlex/hifitts/ilov/src.txt",
+                "path_tgt" : "dataset/unilex_edi/charlex/hifitts/ilov/tgt.txt"
+            },
+            "valid": {
+                "path_src" : "dataset/unilex_edi/charlex/libri960/data/src-val.txt",
+                "path_tgt" : "dataset/unilex_edi/charlex/libri960/data/tgt-val.txt"
+            },
+            "test": {
+                "path_src" : "dataset/unilex_edi/charlex/libri960/data/src-test.txt",
+                "path_tgt" : "dataset/unilex_edi/charlex/libri960/data/tgt-test.txt"
+            }
+        },
+        "gam": {
+            "corpus_1": {
+                "path_src" : "dataset/unilex_gam/charlex/libri960/data/src-train.txt",
+                "path_tgt" : "dataset/unilex_gam/charlex/libri960/data/tgt-train.txt"
+            },
+            "valid": {
+                "path_src" : "dataset/unilex_gam/charlex/libri960/data/src-val.txt",
+                "path_tgt" : "dataset/unilex_gam/charlex/libri960/data/tgt-val.txt"
+            },
+            "test": {
+                "path_src" : "dataset/unilex_gam/charlex/libri960/data/src-test.txt",
+                "path_tgt" : "dataset/unilex_gam/charlex/libri960/data/tgt-test.txt"
+            }
+        },
+        "rpx": {
+            "corpus_1": {
+                "path_src" : "dataset/unilex_rpx/charlex/libri960/data/src-train.txt",
+                "path_tgt" : "dataset/unilex_rpx/charlex/libri960/data/tgt-train.txt"
+            },
+            "corpus_2": {
+                "path_src" : "dataset/unilex_rpx/charlex/hifitts/ilov/src.txt",
+                "path_tgt" : "dataset/unilex_rpx/charlex/hifitts/ilov/tgt.txt"
+            },
+            "valid": {
+                "path_src" : "dataset/unilex_rpx/charlex/libri960/data/src-val.txt",
+                "path_tgt" : "dataset/unilex_rpx/charlex/libri960/data/tgt-val.txt"
+            },
+            "test": {
+                "path_src" : "dataset/unilex_rpx/charlex/libri960/data/src-test.txt",
+                "path_tgt" : "dataset/unilex_rpx/charlex/libri960/data/tgt-test.txt"
+            }
+        }
+    },
+
+    "src_vocab": "vocab/src.vocab",
+    "tgt_vocab": "vocab/tgt.vocab"
+}
